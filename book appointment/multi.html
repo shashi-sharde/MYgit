@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <center><form onsubmit="SaveToLocalStorage(event)">
+            <label>Name</label>
+            <input type="text" name="Username" required><br>
+            <label>Email Id</label>
+            <input type="email" name="EmailID" required><br>
+            <label>Phone Number</label>
+            <input type="tel" name="PhoneNumber" required><br>
+            <labe>Address</labe>
+            <input name="Address" required><br>
+            <button>Submit</button>
+        </form></center>
+        <ul id= "NumberOfUsers"></ul>
+        <script>
+            function SaveToLocalStorage(event){
+                event.preventDefault();
+                const Name = event.target.Username.value
+                const EmailId = event.target.EmailID.value
+                const PhoneNumber = event.target.PhoneNumber.value
+                const Address = event.target.Address.value
+                // localStorage.setItem('Name', Name)
+                // localStorage.setItem('EmailID', EmailId)
+                // localStorage.setItem('PhoneNumber', PhoneNumber)
+                // localStorage.setItem('Address', Address)
+                const obj = {
+                    Name,
+                    EmailId,
+                    PhoneNumber,
+                    Address
+                }
+                localStorage.setItem(obj.Name, JSON.stringify(obj))
+                DisplayOnScreen(obj)
+            }
+            function DisplayOnScreen(User){
+                const parentNode = document.getElementById('NumberOfUsers')
+                const childNode = `<li>Name- ${User.Name}, Email- ${User.EmailId}, PhoneNumber- ${User.PhoneNumber}, Address- ${User.Address}</li>`
+                parentNode.innerHTML = parentNode.innerHTML + childNode
+            }
+        </script>
+
+    </body>
+</html>
