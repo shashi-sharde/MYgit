@@ -1,30 +1,25 @@
 
-<html>
-    <body>
-        <form onsubmit="SaveToLocalStorage(event)">
-            <label>Name</label>
-            <input type="text" name="Username" required><br>
-            <label>Email Id</label>
-            <input type="email" name="EmailID" required><br>
-            <label>Phone Number</label>
-            <input type="tel" name="PhoneNumber" required><br>
-            <labe>Address</labe>
-            <input name="Address" required><br>
-            <button>Submit</button>
-        </form>
-        <script>
-            function SaveToLocalStorage(event){
-                event.preventDefault();
-                const Name = event.target.Username.value
-                const EmailId = event.target.EmailID.value
-                const PhoneNumber = event.target.PhoneNumber.value
-                const Address = event.target.Address.value
-                localStorage.setItem('Name', Name)
-                localStorage.setItem('EmailID', EmailId)
-                localStorage.setItem('PhoneNumber', PhoneNumber)
-                localStorage.setItem('Adress', Address)
-            }
-        </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
-    </body>
+</body>
+<script type="text/javascript">
+    let S1 = {
+        name: 'Subham Deb',
+        age: 26
+    }
+    let obj_string = JSON.stringify(S1);
+    localStorage.setItem('S1', obj_string)
+    let obj_destring = JSON.parse(localStorage.getItem('S1'))
+    console.log(obj_destring)
+
+
+</script>
 </html>
