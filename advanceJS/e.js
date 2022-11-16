@@ -1,72 +1,38 @@
-//house
-//this.table='window table'; //global scope
-//console.log(window.table);
-this.garage={
-    table:'garage table',
-    cleanTable(){
-
-        console.log(`cleaning ${this.table}`);
+class Student{
+   static No_of_student=0;
+    constructor(Name,age,ph_no,marks){
+        this.Name=Name;
+        this.age=age;
+        this.ph_no=ph_no;
+        this.marks=marks;
+        Student.studentsNumber();
     }
-};
-this.garage.table; //when you said 'this.' then you are creating a public property
-//this inside an object 
-// let johnRoom={
-//     table:'johns table'
-// };
-// console.log(johnRoom.table);
-// this inside a method
-let johnRoom={
-    table:'johns table',
-    cleanTable(){
-
-        console.log(`cleaning ${this.table}`);
+    static studentsNumber(){
+        return (Student.No_of_student++);
     }
-};
-console.log(johnRoom.table);
-johnRoom.cleanTable();//caling from method inside the private object
-this.garage.cleanTable() //caling from method inside the public object
-// this inside a function
-// this.table='window table'; //global scope
-// const clean=function(soap){
-//     console.log(`cleaning ${this.table} using ${soap}`);
-// };
-// clean.call(this, 'surf-excel');
-// clean.call(this.garage,'vimbar');
-// clean.call(johnRoom,'harpic');
+    
 
-//this inside an inner function
-this.table='window table'; //global scope
-const clean=function(soap){
-    const inner=(_soap) => {
-        console.log(`cleaning ${this.table} using ${soap}`);
-
+    }Student.prototype.findeligibllity=function findeligibllity(){
+        if(this,this.marks >40){
+            console.log(this.Name + " is eligible")
+        } else{
+            console.log(this.Name + " is not eligible")
+        }
     }
-    //inner.call(this)(soap); or
-    inner(soap);
 
-};
-clean.call(this, 'surf-excel');
-
-//this inside a constructor
-let createRoom=function(name){
-    this.table= `${name}'s room`
-
-}
-const jillsRoom=new createRoom('jill');
-const shashiRoom=new createRoom("shashi");
-clean.call(shashiRoom,'harpic');
-
-//this inside class
-class Room{
-    constructor(name){
-        this.table= `${name}'s table`
-
-
-    }
-    clea(soap){
-
-        console.log(`cleaning ${this.table} using ${soap}`);
-    }
-}
-const illsRoom=new Room('ill');
-illsRoom.clea("lux");
+const s1=new Student("Shashi",20,1234,89);
+const s2=new Student("Shash",21,12345,39);
+const s3=new Student("Raju",22,123,49);
+const s4=new Student("Raj",26,1236,19);
+const s5=new Student("Rajan",29,1253,69);
+console.log(s1);
+console.log(s2);
+console.log(s3);
+console.log(s4);
+console.log(s5);
+console.log(Student.studentsNumber());
+s1.findeligibllity()
+s2.findeligibllity()
+s3.findeligibllity()
+s4.findeligibllity()
+s5.findeligibllity()
